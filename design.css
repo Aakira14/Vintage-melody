@@ -1,0 +1,269 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #A98B76, #BFA28C, #F3E4C9);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    min-height: 100vh;
+}
+
+.player-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.music-player {
+    width: 500px;
+    height: 700px;
+    background: #a3a782;
+    border: 3px solid #3f2a20;
+    border-radius: 22px;
+    box-shadow:
+        0 8px 32px rgba(255, 182, 193, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+.title-bar {
+    height: 25px;
+    background: linear-gradient(to right, #cfb4a0, #BFA28C, #A98B76);
+    border-bottom: 2px solid #A98B76;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.title-text {
+    color: #000000;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: '.playfair-display-<uniquifier>', monospace;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.control-btn {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.minimize-btn {
+    background: linear-gradient(135deg, #C7EABB, #84B179);
+}
+
+.close-btn {
+    background: linear-gradient(135deg, #ff9999, #ff6b9d);
+    color: white;
+}
+
+.control-btn:hover {
+    transform: scale(0.95);
+}
+
+.control-btn:active {
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.player-content {
+    padding: 7px;
+    height: calc(100% - 35px);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.display {
+    background: linear-gradient(135deg, #BFA28C, #A98B76);
+    height: 455px;
+    width: 100%;
+    border: 2px solid #BABF94;
+    border-radius: 10px;
+    box-shadow: 
+        inset 0 2px 8px rgba(0,0,0,0.3),
+        0 2px 12px rgba(255, 158, 199, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.display-image {
+    max-height: 450px;
+    width: auto;
+    border-radius: 7px;
+    object-fit: cover;
+    display: block;
+}
+
+.song-title {
+    text-align: left;
+    font-family: '.playfair-display-<uniquifier>', monospace;
+    font-size: 20px;
+    color: #060606;
+    font-weight: bold;
+    margin: 3px 0;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 4px 0;
+}
+
+.player-btn {
+    width: 28px;
+    height: 24px;
+    background: linear-gradient(135deg, #ffeef8, #ffb3d9);
+    border: 2px solid #ff9ec7;
+    border-radius: 50%;
+    box-shadow: 
+        0 4px 12px rgba(255, 158, 199, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    transition: all 0.2s ease;
+    color: #8b4a8c;
+}
+
+.player-btn:hover {
+    background: linear-gradient(135deg, #fff0f8, #ffc7e6);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 16px rgba(255, 158, 199, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.player-btn:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 2px 8px rgba(255, 158, 199, 0.3),
+        inset 0 2px 4px rgba(139, 74, 140, 0.2);
+}
+
+.timeline-section {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 10px;
+    background: linear-gradient(135deg, #A98B76, #BFA28C);
+    border: 2px solid #BFA28C;
+    border-radius: 7px;
+    box-shadow:
+        inset 0 2px 4px rgba(139, 74, 140, 0.2),
+        0 2px 8px rgba(255, 158, 199, 0.2);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #84B179, #A2CB8B, #C7EABB);
+    width: 0%;
+    transition: width 0.1s ease;
+    border-radius: 5px;
+}
+
+.eq-bars {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    align-items: end;
+    height: 21px;
+}
+
+.eq-bar {
+    width: 5px;
+    background: linear-gradient(to top, #84B179, #A2CB8B, #C7EABB);
+    border: 1px solid #E8F5BD;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 2px 8px rgba(255, 158, 199, 0.3);
+    animation: eq-bounce 0.8s ease-in-out infinite alternate;
+}
+
+.eq-bar:nth-child(1) { height: 9px; animation-delay: 0s; }
+.eq-bar:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+.eq-bar:nth-child(3) { height: 18px; animation-delay: 0.2s; }
+.eq-bar:nth-child(4) { height: 11px; animation-delay: 0.3s; }
+.eq-bar:nth-child(5) { height: 16px; animation-delay: 0.4s; }
+
+@keyframes eq-bounce {
+    0% { transform: scaleY(0.3); }
+    100% { transform: scaleY(1); }
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #ff6b9d, #ff9ec7);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 
+        0 2px 8px rgba(255, 107, 157, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 50% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+    51%, 100% { 
+        opacity: 0.6; 
+        transform: scale(0.9);
+    }
+}
+
+.playing .status-indicator {
+    background: linear-gradient(135deg, #66ff99, #99ffcc);
+    box-shadow: 
+        0 2px 8px rgba(102, 255, 153, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
